@@ -1,3 +1,4 @@
+const cors = require('cors');
 var express = require("express"),
      app= express(),
      auth = require("./Routes/Auth/auth"),
@@ -8,6 +9,12 @@ var express = require("express"),
 
 
 
+app.use(cors({
+     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
+     origin: '*'
+     }));
+
+      
 //Body Parser -------------------
 app.use(bodyParser.urlencoded({extended : false}));
 // router.use(methodOverride("_method"));
